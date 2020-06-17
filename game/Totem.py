@@ -12,7 +12,7 @@ class Totem:
 		forth bit: is hallow
 		e.g. a Tall Black Hallow Round totem will be represented as 1001
 
-		This representation will help to evaluate win or lose situation in m
+		This representation will help to evaluate win or lose situation in more efficient way
 	"""
 	totem_type = str
 
