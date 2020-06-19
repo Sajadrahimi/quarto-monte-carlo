@@ -12,23 +12,20 @@ class Board:
 		assert j in range(4), "j out of range"
 		return self.grid[i][j] is None
 
+	def get_available(self):
+		free = []
+		for i in range(4):
+			for j in range(4):
+				if self.is_empty(i, j):
+					free.append((i, j))
+		return free
+
 	def is_allowed(self, totem: Totem):
 		for i in range(4):
 			for j in range(4):
 				if self.get_totem(i, j) == totem:
 					return False
 		return True
-
-	def set_totem(self, totem: Totem, i: int, j: int):
-		assert i in range(4), "i out of range"
-		assert j in range(4), "j out of range"
-		try:
-			if self.is_empty(i, j):
-				self.grid[i][j] = totem
-				return True
-			return False
-		except Exception as e:
-			print(e)
 
 	def get_totem(self, i: int, j: int):
 		assert i in range(4), "i out of range"

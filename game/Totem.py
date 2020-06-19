@@ -22,14 +22,20 @@ class Totem:
 	def __str__(self):
 		return "%s" % self.totem_type
 
+	def __repr__(self):
+		return str(self)
+
 	def __eq__(self, other):
 		return self.totem_type == other.totem_type
 
 
 def are_similar(totems: List[Totem]):
 	assert len(totems) > 1, "at least two totems are required"
-
+	for totem in totems:
+		if totem is None:
+			return False
 	for i in range(4):
-		if reduce(iand, [~(int(x.totem_type[i]) - 2) for x in totems]) + reduce(iand, [int(x.totem_type[i]) for x in totems]) == 1:
+		if reduce(iand, [~(int(x.totem_type[i]) - 2) for x in totems]) + reduce(iand, [int(x.totem_type[i]) for x in
+																					   totems]) == 1:
 			return True
 	return False
